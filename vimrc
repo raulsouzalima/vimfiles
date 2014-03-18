@@ -65,7 +65,7 @@ set foldmethod=indent         "fold based on indent
 set foldnestmax=3             "deepest fold is 3 levels
 set nofoldenable              "dont fold by default
 
-"set wildmode=list:longest     "make cmdline tab completion similar to bash
+set wildmode=list:longest     "make cmdline tab completion similar to bash
 set wildmenu                  "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o,*.obj,*~   "stuff to ignore when tab completing
 set formatoptions-=o          "dont continue comments when pushing o/O
@@ -224,7 +224,6 @@ function! s:Median(nums)
   endif
 endfunction
 
-
 "snipmate setup
 source ~/.vim/snippets/support_functions.vim
 function! s:SetupSnippets()
@@ -258,6 +257,29 @@ function! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfunction
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+"visual search mappings
+function! s:VSetSearch()
+    let temp = @@
+    norm! gvy
+    let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
+    let @@ = temp
+endfunction
+vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
+vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
+
+
+"jump to last cursor position when opening a file
+"dont do it when writing a commit log entry
+autocmd BufReadPost * call SetCursorPosition()
+function! SetCursorPosition()
+    if &filetype !~ 'commit\c'
+        if line("'\"") > 0 && line("'\"") <= line("$")
+            exe "normal! g`\""
+            normal! zz
+        endif
+    end
+endfunction
 
 "key mapping for window navigation
 map <C-h> <C-w>h
