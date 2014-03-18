@@ -14,6 +14,15 @@ call vundle#rc()
 
 "Libs
 Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
+Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdtree'
+Bundle 'bling/vim-airline'
+Bundle 'mattn/emmet-vim'
+Bundle 'thoughtbot/vim-rspec'
+Bundle 'vim-scripts/fountain.vim'
 
 syntax on                      "turn on syntax highlighting
 filetype plugin indent on     " To ignore plugin indent changes
@@ -94,8 +103,13 @@ else
       colorscheme default
     endif
   endif
-
 endif
+
+" NERDTree settings
+silent! nmap <silent> <Leader>p :NERDTreeToggle<CR>
+nmap wm :NERDTree<cr>
+let NERDTreeIgnore=['\.swp$']
+
 
 autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning  "recalculate the trailing whitespace warning when idle, and after saving
 
