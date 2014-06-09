@@ -51,6 +51,11 @@ set guioptions-=T              "turn off needless toolbar on gvim/mvim
 set guioptions-=L              "turn off the scroll bar
 set guioptions-=r
 
+" Off automatic backup
+set nobackup
+set nowritebackup
+set noswapfile
+
 "indent settings
 set tabstop=2
 set shiftwidth=2
