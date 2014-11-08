@@ -8,24 +8,26 @@ filetype off
 set nocompatible
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 
 "Libs
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
-Bundle 'scrooloose/syntastic'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
-Bundle 'scrooloose/nerdtree'
-Bundle 'bling/vim-airline'
-Bundle 'mattn/emmet-vim'
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'vim-scripts/fountain.vim'
+Plugin 'gmarik/vundle'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/syntastic'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'scrooloose/nerdtree'
+Plugin 'bling/vim-airline'
+Plugin 'mattn/emmet-vim'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'vim-scripts/fountain.vim'
+
+call vundle#end()
 
 syntax on                      "turn on syntax highlighting
 filetype plugin indent on     " To ignore plugin indent changes
