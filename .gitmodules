@@ -1,6 +1,6 @@
 [submodule "bundle/vundle"]
-	path = bundle/vundle
-	url = https://github.com/gmarik/vundle.git
+	path = bundle/Vundle.vim
+	url = https://github.com/gmarik/Vundle.vim.git
 [submodule "snippets"]
 	path = snippets
 	url = https://github.com/raulsouzalima/snipmate-snippets.git
